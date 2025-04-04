@@ -3,17 +3,19 @@ import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Modules!" },
+    { name: "description", content: "Real Imaginary Modules" },
   ];
 }
 
-export default function Home() {
+export default function Modules() {
+  const moduleId = new Date().getTime().toString().slice(5);
+
   return (
     <main className="flex items-center justify-center pt-16 pb-4">
       <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
-        <NavLink to={"/modules"}>Modules</NavLink>
-        <NavLink to={"/resources"}>Resources</NavLink>
+        <NavLink to={`./${moduleId}`}>{`Module: ${moduleId}`}</NavLink>
+        <NavLink to={"/"}>Go Back</NavLink>
       </div>
     </main>
   );
