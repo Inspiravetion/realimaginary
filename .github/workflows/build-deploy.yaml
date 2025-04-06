@@ -34,8 +34,9 @@ jobs:
         run: |
           npm ci
           npm run build
-          mv build/client/** .
-          ls -lrt
+          mkdir docs
+          mv build/client/** docs
+          ls -lrt docs
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
