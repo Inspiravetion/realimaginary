@@ -34,16 +34,16 @@ jobs:
         run: |
           npm ci
           npm run build
-          mkdir docs
-          mv build/client/** docs
-          ls -lrt docs
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-        # with:
-        # Upload entire repository
-        # path: 'build/client'
+        with:
+          # Upload entire repository
+          path: 'build/client'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+# mkdir docs
+# mv build/client/** docs
+# ls -lrt docs
