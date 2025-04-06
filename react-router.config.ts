@@ -7,8 +7,6 @@ export default {
   ssr: false,
   basename: '/realimaginary/',
   buildEnd: (args) => {
-    // if (!args.viteConfig.isProduction) return;
-
     // When deploying to GitHub Pages, if you navigate from / to another
     // route and refresh the tab, it will show the default GH Pages 404
     // page. This happens because GH Pages is not configured to send all
@@ -22,15 +20,5 @@ export default {
     const homePath = join(buildPath, 'index.html');
 
     copyFileSync(homePath, join(buildPath, '404.html'));
-
-    // for (const route in Routes) {
-    //   const fileName = Routes[route];
-
-    //   if (fileName == Routes.Home) {
-    //     continue;
-    //   } else {
-    //     copyFileSync(homePath, join(buildPath, `${fileName}.html`));
-    //   }
-    // }
   },
 } satisfies Config;

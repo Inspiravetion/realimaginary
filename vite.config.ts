@@ -1,25 +1,9 @@
 import { reactRouter } from '@react-router/dev/vite';
 import tailwindcss from '@tailwindcss/vite';
-import { writeFileSync } from 'node:fs';
-import { defineConfig, type Plugin } from 'vite';
+import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
-
-function gitHubActionsRouting() {
-  return {
-    name: 'GithubActionRoutingPlugin',
-    generateBundle: (options, bundle) => {
-      console.log('DIR: ', options.dir);
-      writeFileSync('./testing', JSON.stringify(bundle, null, 2));
-    },
-  } satisfies Plugin;
-}
 
 export default defineConfig({
   base: '/realimaginary/',
-  plugins: [
-    tailwindcss(),
-    reactRouter(),
-    tsconfigPaths(),
-    gitHubActionsRouting(),
-  ],
+  plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
 });

@@ -1,21 +1,21 @@
-import { NavLink } from "react-router";
-import type { Route } from "./+types/home";
+import { NavLink } from 'react-router';
+import type { Route } from './+types/home';
+import db from './db.json';
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Modules!" },
-    { name: "description", content: "Real Imaginary Modules" },
+    { title: 'Modules!' },
+    { name: 'description', content: 'Real Imaginary Modules' },
   ];
 }
 
 export default function Modules() {
-  const moduleId = new Date().getTime().toString().slice(5);
-
   return (
     <main className="flex items-center justify-center pt-16 pb-4">
       <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
-        <NavLink to={`./${moduleId}`}>{`Module: ${moduleId}`}</NavLink>
-        <NavLink to={"/"}>Go Back</NavLink>
+        {db.modules.map((m) => (
+          <NavLink to={`./${m.id}`}>{m.name}</NavLink>
+        ))}
       </div>
     </main>
   );

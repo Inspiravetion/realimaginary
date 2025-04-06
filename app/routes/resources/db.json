@@ -1,0 +1,19 @@
+{
+  "resources": [
+    {
+      "id": "1",
+      "name": "Foo",
+      "tags": ["Abolition", "Reproductive Rights", "Child Care"]
+    },
+    {
+      "id": "2",
+      "name": "Bar",
+      "tags": ["Environmental Justice", "Free Speech"]
+    },
+    {
+      "id": "3",
+      "name": "Baz",
+      "tags": ["Environmental Justice", "Reproductive Rights", "Land Back"]
+    }
+  ]
+}

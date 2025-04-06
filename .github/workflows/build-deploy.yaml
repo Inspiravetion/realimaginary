@@ -44,6 +44,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-# mkdir docs
-# mv build/client/** docs
-# ls -lrt docs

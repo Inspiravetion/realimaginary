@@ -7,7 +7,6 @@ import {
 } from '@react-router/dev/routes';
 
 export default [
-  // ...prefix('realimaginary', [
   layout('./routes/navLayout.tsx', [
     index('./routes/home.tsx'),
 
@@ -21,5 +20,4 @@ export default [
       route(':resourceId', './routes/resources/details.tsx'),
     ]),
   ]),
-  // ]),
 ] satisfies RouteConfig;
