@@ -16,9 +16,6 @@ function gitHubActionsRouting() {
 
 export default defineConfig({
   base: '/realimaginary/',
-  //   build: {
-  //     outDir: "dist"
-  //   },
   plugins: [
     tailwindcss(),
     reactRouter(),
