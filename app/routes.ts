@@ -4,20 +4,22 @@ import {
   prefix,
   route,
   type RouteConfig,
-} from "@react-router/dev/routes";
+} from '@react-router/dev/routes';
 
 export default [
-  layout("./routes/navLayout.tsx", [
-    index("./routes/home.tsx"),
+  // ...prefix('realimaginary', [
+  layout('./routes/navLayout.tsx', [
+    index('./routes/home.tsx'),
 
-    ...prefix("modules", [
-      index("./routes/modules/home.tsx"),
-      route(":moduleId", "./routes/modules/details.tsx"),
+    ...prefix('modules', [
+      index('./routes/modules/home.tsx'),
+      route(':moduleId', './routes/modules/details.tsx'),
     ]),
 
-    ...prefix("resources", [
-      index("./routes/resources/home.tsx"),
-      route(":resourceId", "./routes/resources/details.tsx"),
+    ...prefix('resources', [
+      index('./routes/resources/home.tsx'),
+      route(':resourceId', './routes/resources/details.tsx'),
     ]),
   ]),
+  // ]),
 ] satisfies RouteConfig;
