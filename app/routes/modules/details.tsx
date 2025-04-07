@@ -1,12 +1,13 @@
 import { NavLink } from 'react-router';
+import { navRoutes } from '~/routes';
 import resourceDB from '../resources/db.json';
 import type { Route } from './+types/details';
 import db from './db.json';
 
 export default function ModuleDetails({ params }: Route.ComponentProps) {
-  const module = db.modules.find((m) => m.id === params.moduleId);
+  const mod = db.modules.find((m) => m.id === params.moduleId);
 
-  if (!module) {
+  if (!mod) {
     return `Module ${params.moduleId} not found.`;
   }
 
@@ -15,11 +16,11 @@ export default function ModuleDetails({ params }: Route.ComponentProps) {
       <h1
         style={{ fontSize: '1.5em', marginBottom: '16px', textAlign: 'center' }}
       >
-        {module.name}
+        {mod.name}
       </h1>
       <ul style={{ display: 'flex', flexDirection: 'column' }}>
-        {module.resources.map((resourceId) => (
-          <NavLink to={`/resources/${resourceId}`}>
+        {mod.resources.map((resourceId) => (
+          <NavLink to={navRoutes.resources.details(resourceId)}>
             {resourceDB.resources.find((r) => r.id === resourceId)?.name}
           </NavLink>
         ))}
