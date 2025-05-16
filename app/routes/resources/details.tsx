@@ -59,7 +59,8 @@ type PodcastFile = {
 
 type ArticleResource = {
   type: ResourceType.Article;
-};
+  url: string
+}
 
 // Videos
 
@@ -101,8 +102,10 @@ export default function ResourceDetails({ params }: Route.ComponentProps) {
         } else if (source.type === ResourceType.Podcast) {
           return <EmbeddedPodcast source={source} />;
         } else if (source.type === ResourceType.Video) {
-            return <EmbeddedVideo source={source} />;
-          }
+          return <EmbeddedVideo source={source} />;
+        } else if (source.type === ResourceType.Article) {
+            return <EmbeddedArticle source={source} />
+        }
       })}
     </div>
   );
@@ -200,3 +203,18 @@ function EmbeddedFileVideo({ url }: { url: VideoResource["url"] }) {
       </video>
     );
   }
+
+function EmbeddedArticle({ source }: { source: ArticleResource }) {
+    return (
+        <iframe
+        style={{ border: 0 }}
+        width="100%"
+        height="630"
+        src={source.url}
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+      />
+    );
+}
+

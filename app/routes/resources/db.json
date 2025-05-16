@@ -42,9 +42,20 @@
           "type": "podcast",
           "provider": "file",
           "url": "/realimaginary/20211203-BAP-EP004-Mixdown-003-1.mp3",
-          "origin": "https://offshootjournal.org/medias/black-autonomy-episode-4-black-anti-fascism-and-armed-self-defense/"
+          "origin": " https://offshootjournal.org/medias/black-autonomy-episode-4-black-anti-fascism-and-armed-self-defense/"
         }
       ]
-    }
+    },
+    {
+        "id": "4",
+        "name": "The Future Is Disabled",
+        "tags": ["Disability Justice", "Queer", "COVID-19", "Mutual Aid"],
+        "sources": [
+          {
+            "type": "article",
+            "url": "https://www.teenvogue.com/story/future-is-disabled-book"
+          }
+        ]
+      }
   ]
 }
