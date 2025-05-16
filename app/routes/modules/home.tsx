@@ -1,12 +1,12 @@
-import { NavLink } from 'react-router';
-import { navRoutes } from '~/routes';
-import type { Route } from './+types/home';
-import db from './db.json';
+import { NavLink } from "react-router";
+import { navRoutes } from "~/routes";
+import type { Route } from "./+types/home";
+import db from "./db.json";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: 'Modules!' },
-    { name: 'description', content: 'Real Imaginary Modules' },
+    { title: "Modules!" },
+    { name: "description", content: "Real Imaginary Modules" },
   ];
 }
 

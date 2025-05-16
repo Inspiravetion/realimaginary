@@ -1,12 +1,12 @@
-import { NavLink } from 'react-router';
-import { navRoutes } from '~/routes';
-import type { Route } from './+types/home';
-import db from './db.json';
+import { NavLink } from "react-router";
+import { navRoutes } from "~/routes";
+import type { Route } from "./+types/home";
+import db from "./db.json";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: 'Resources!' },
-    { name: 'description', content: 'Real Imaginary Resources' },
+    { title: "Resources!" },
+    { name: "description", content: "Real Imaginary Resources" },
   ];
 }
 

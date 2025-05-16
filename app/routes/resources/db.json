@@ -2,18 +2,48 @@
   "resources": [
     {
       "id": "1",
-      "name": "Foo",
-      "tags": ["Abolition", "Reproductive Rights", "Child Care"]
+      "name": "Recipes for Disaster: An Anarchist Cookbook",
+      "tags": ["Radical Community", "Crisis Response", "Anarchy", "DIY"],
+      "sources": [
+        {
+          "url": "/realimaginary/crimethinc.recipes.for.disaster.an.anarchist.cookbook.pdf",
+          "type": "pdf"
+        }
+      ]
     },
     {
       "id": "2",
-      "name": "Bar",
-      "tags": ["Environmental Justice", "Free Speech"]
+      "name": "Relationship Anarchy and The Romance Myth with Dean Spade",
+      "tags": ["Relationship Anarchy", "Radical Community", "Romance"],
+      "sources": [
+        {
+          "type": "podcast",
+          "provider": "spotify",
+          "url": "https://open.spotify.com/embed/episode/2ZH8E7TL7dkw0epJ3rslz7?theme=0"
+        },
+        {
+          "type": "podcast",
+          "provider": "apple",
+          "url": "https://embed.podcasts.apple.com/us/podcast/191-relationship-anarchy-and-the-romance-myth/id1563242316?i=1000681629200"
+        },
+        {
+            "type": "video",
+            "provider": "youtube",
+            "url": "https://www.youtube-nocookie.com/embed/3BaUwuaa45s?si=MpturckrlRuGU8hl"
+        }
+      ]
     },
     {
       "id": "3",
-      "name": "Baz",
-      "tags": ["Environmental Justice", "Reproductive Rights", "Land Back"]
+      "name": "Black Anti-Fascism and Armed Self-Defense",
+      "tags": ["Environmental Justice", "Reproductive Rights", "Land Back"],
+      "sources": [
+        {
+          "type": "podcast",
+          "provider": "file",
+          "url": "/realimaginary/20211203-BAP-EP004-Mixdown-003-1.mp3"
+        }
+      ]
     }
   ]
 }
