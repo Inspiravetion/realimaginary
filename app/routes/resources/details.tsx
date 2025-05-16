@@ -26,26 +26,56 @@ type Resource = {
   sources: Source[];
 };
 
+// PDFs
+
 type PDFResource = {
   type: ResourceType.PDF;
   url: string;
 };
 
+// Podcasts
+
 type PodcastResource = {
-  type: ResourceType.Podcast;
-  provider: PodcastProvider;
-  url: string;
-};
+  type: ResourceType.Podcast
+} & (SpotifyPodcast | ApplePodcast | PodcastFile)
+
+type SpotifyPodcast = {
+    provider: PodcastProvider.Spotify;
+    url: string;
+}
+
+type ApplePodcast = {
+    provider: PodcastProvider.Apple;
+    url: string;
+}
+
+type PodcastFile = {
+    provider: PodcastProvider.File;
+    url: string;
+    origin?: string;
+}
+
+// Articles
 
 type ArticleResource = {
   type: ResourceType.Article;
 };
 
-type VideoResource = {
-  type: ResourceType.Video;
-  provider: VideoProvider;
-  url: string;
-};
+// Videos
+
+type VideoResource = { type: ResourceType.Video } & (YoutubeVideo | VideoFile);
+
+type YoutubeVideo = {
+    provider: VideoProvider.Youtube;
+    url: string;
+}
+
+type VideoFile = {
+    provider: VideoProvider.File;
+    url: string;
+    origin?: string;
+}
+
 
 type Source = PDFResource | PodcastResource | ArticleResource | VideoResource;
 

@@ -41,7 +41,8 @@
         {
           "type": "podcast",
           "provider": "file",
-          "url": "/realimaginary/20211203-BAP-EP004-Mixdown-003-1.mp3"
+          "url": "/realimaginary/20211203-BAP-EP004-Mixdown-003-1.mp3",
+          "origin": "https://offshootjournal.org/medias/black-autonomy-episode-4-black-anti-fascism-and-armed-self-defense/"
         }
       ]
     }
