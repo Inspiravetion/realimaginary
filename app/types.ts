@@ -1,3 +1,12 @@
+/**
+ * Design Desisions
+ * 1) Modules will have versions that you publish so people relying on them don't have the rug pulled out from
+ * under them later & we only have to worry about checking the validity of references when there are edit
+ * operations on a module/course
+ * 2) We want Activities to be able to be associated with Resources at the course level, at the 
+ * Module level, and projected from the course into the module
+ */
+
 
 /**
  * Questions that got me to this understanding/types
@@ -86,7 +95,8 @@ type Previewable<T> = {
    */
   type ResourceContent = {
     contentType: 'resource',
-    resourceId: string
+    resourceId: string,
+    associatedActivities?: ActivityContent[]
   }
   
   /**
@@ -124,7 +134,13 @@ type Previewable<T> = {
         {
             // Preparing for the end of the world as we know it
             contentType: 'resource',
-            resourceId: '1'
+            resourceId: '1',
+            associatedActivities: [
+                {
+                    contentType: 'activity',
+                    actType: 'poll'
+                }
+            ]
         },
         {
             // Everything Is Everything, or How Black Women Will Survive the End of the World
@@ -174,7 +190,7 @@ type Previewable<T> = {
     title: 'The MAGA Era and Global Right-Wing Extremism',
     description: 'From Project 2025...',
     content: [
-        { contentType: 'resource', resourceId: '4' }, 
+        { contentType: 'resource', resourceId: '4', associatedActivities: [] }, 
         { contentType: 'activity', actType : 'poll'},
         { contentType: 'resource', resourceId: '5' }, 
         { contentType: 'activity', actType : 'prompt'},
