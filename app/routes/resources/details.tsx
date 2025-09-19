@@ -1,5 +1,7 @@
+import { TestFingerPrint } from "~/components/contentFingerPrint";
 import type { Route } from "./+types/details";
 import db from "./db.json";
+import { TestTagPills } from "~/components/tags";
 
 enum ResourceType {
   PDF = "pdf",
@@ -64,6 +66,11 @@ type ArticleResource = {
 
 // Videos
 
+
+// type TypedVariants<Type, Variants, Key extends string = 'type'> = { [key in Key]: Type } & Variants;
+
+// type TestVidResource = TypedVariants<ResourceType.Video, YoutubeVideo | VideoFile> 
+
 type VideoResource = { type: ResourceType.Video } & (YoutubeVideo | VideoFile);
 
 type YoutubeVideo = {
@@ -91,6 +98,8 @@ export default function ResourceDetails({ params }: Route.ComponentProps) {
 
   return (
     <div style={{ padding: "24px", height: "100%" }}>
+      <TestFingerPrint/>
+      <TestTagPills/>
       {`Resoucre ${resource.name} has tags ${JSON.stringify(
         resource.tags,
         null,
