@@ -1,22 +1,31 @@
-
 // type Tag = {
 //     // id: string,
 //     // name: string,
 //     color: `#${string}`
 // }
 
-import { Tags, tagToHSLString, type Tag } from "~/components/tags";
+import { Tags, tagToHSLString, type Tag } from '~/components/tags';
 
 export function ContentFingerPrint({ tags }: { tags: Tag[] }) {
-    const colorStops = tags.map(t => `${tagToHSLString(t)}, ${tagToHSLString(t)}`).join(', ');
+  const colorStops = tags
+    .map((t) => `${tagToHSLString(t)}, ${tagToHSLString(t)}`)
+    .join(', ');
 
-    return <div style={{height: '4px', width: '100%', background: `linear-gradient(90deg, ${colorStops})`}}>
-
-    </div>
+  return (
+    <div
+      style={{
+        height: '4px',
+        width: '100%',
+        background: `linear-gradient(90deg, ${colorStops})`,
+      }}
+    ></div>
+  );
 }
 
 export function TestFingerPrint() {
-    return <ContentFingerPrint tags={[
+  return (
+    <ContentFingerPrint
+      tags={[
         Tags.StateSponsoredViolence,
         Tags.MilitaryIndustrialComplex,
         Tags.ForeignAggression,
@@ -26,9 +35,8 @@ export function TestFingerPrint() {
         Tags.SchoolToPrisonPipeline,
         Tags.DisabilityJustice,
         Tags.EnvironmentalJustice,
-        Tags.LGBTQIARights
-    ]}/>
+        Tags.LGBTQIARights,
+      ]}
+    />
+  );
 }
-
-
-

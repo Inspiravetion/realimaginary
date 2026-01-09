@@ -1,0 +1,19 @@
+{
+  "name": "real_imaginary/server",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "dev": "react-router dev",
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc",
+    "format": "prettier --write app"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^20",
+    "typescript": "^5.7.2"
+  }
+}
