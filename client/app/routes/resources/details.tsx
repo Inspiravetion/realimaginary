@@ -1,24 +1,24 @@
-import { TestFingerPrint } from "~/components/contentFingerPrint";
-import type { Route } from "./+types/details";
-import db from "./db.json";
-import { TestTagPills } from "~/components/tags";
+import { TestFingerPrint } from '~/components/contentFingerPrint';
+import { TestTagPills } from '~/components/tags';
+import type { Route } from './+types/details';
+import db from './db.json';
 
 enum ResourceType {
-  PDF = "pdf",
-  Podcast = "podcast",
-  Article = "article",
-  Video = "video",
+  PDF = 'pdf',
+  Podcast = 'podcast',
+  Article = 'article',
+  Video = 'video',
 }
 
 enum PodcastProvider {
-  Spotify = "spotify",
-  Apple = "apple",
-  File = "file",
+  Spotify = 'spotify',
+  Apple = 'apple',
+  File = 'file',
 }
 
 enum VideoProvider {
-    Youtube = 'youtube',
-    File = 'file'
+  Youtube = 'youtube',
+  File = 'file',
 }
 
 type Resource = {
@@ -38,52 +38,50 @@ type PDFResource = {
 // Podcasts
 
 type PodcastResource = {
-  type: ResourceType.Podcast
-} & (SpotifyPodcast | ApplePodcast | PodcastFile)
+  type: ResourceType.Podcast;
+} & (SpotifyPodcast | ApplePodcast | PodcastFile);
 
 type SpotifyPodcast = {
-    provider: PodcastProvider.Spotify;
-    url: string;
-}
+  provider: PodcastProvider.Spotify;
+  url: string;
+};
 
 type ApplePodcast = {
-    provider: PodcastProvider.Apple;
-    url: string;
-}
+  provider: PodcastProvider.Apple;
+  url: string;
+};
 
 type PodcastFile = {
-    provider: PodcastProvider.File;
-    url: string;
-    origin?: string;
-}
+  provider: PodcastProvider.File;
+  url: string;
+  origin?: string;
+};
 
 // Articles
 
 type ArticleResource = {
   type: ResourceType.Article;
-  url: string
-}
+  url: string;
+};
 
 // Videos
 
-
 // type TypedVariants<Type, Variants, Key extends string = 'type'> = { [key in Key]: Type } & Variants;
 
-// type TestVidResource = TypedVariants<ResourceType.Video, YoutubeVideo | VideoFile> 
+// type TestVidResource = TypedVariants<ResourceType.Video, YoutubeVideo | VideoFile>
 
 type VideoResource = { type: ResourceType.Video } & (YoutubeVideo | VideoFile);
 
 type YoutubeVideo = {
-    provider: VideoProvider.Youtube;
-    url: string;
-}
+  provider: VideoProvider.Youtube;
+  url: string;
+};
 
 type VideoFile = {
-    provider: VideoProvider.File;
-    url: string;
-    origin?: string;
-}
-
+  provider: VideoProvider.File;
+  url: string;
+  origin?: string;
+};
 
 type Source = PDFResource | PodcastResource | ArticleResource | VideoResource;
 
@@ -97,9 +95,9 @@ export default function ResourceDetails({ params }: Route.ComponentProps) {
   }
 
   return (
-    <div style={{ padding: "24px", height: "100%" }}>
-      <TestFingerPrint/>
-      <TestTagPills/>
+    <div style={{ padding: '24px', height: '100%' }}>
+      <TestFingerPrint />
+      <TestTagPills />
       {`Resoucre ${resource.name} has tags ${JSON.stringify(
         resource.tags,
         null,
@@ -113,7 +111,7 @@ export default function ResourceDetails({ params }: Route.ComponentProps) {
         } else if (source.type === ResourceType.Video) {
           return <EmbeddedVideo source={source} />;
         } else if (source.type === ResourceType.Article) {
-            return <EmbeddedArticle source={source} />
+          return <EmbeddedArticle source={source} />;
         }
       })}
     </div>
@@ -141,10 +139,10 @@ function EmbeddedPodcast({ source }: { source: PodcastResource }) {
   }
 }
 
-function EmbeddedSpotifyPodcast({ url }: { url: PodcastResource["url"] }) {
+function EmbeddedSpotifyPodcast({ url }: { url: PodcastResource['url'] }) {
   return (
     <iframe
-      style={{ borderRadius: "12px", border: 0 }}
+      style={{ borderRadius: '12px', border: 0 }}
       src={url}
       width="100%"
       height="352"
@@ -155,15 +153,15 @@ function EmbeddedSpotifyPodcast({ url }: { url: PodcastResource["url"] }) {
   );
 }
 
-function EmbeddedApplePodcast({ url }: { url: PodcastResource["url"] }) {
+function EmbeddedApplePodcast({ url }: { url: PodcastResource['url'] }) {
   return (
     <iframe
       allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
       style={{
-        width: "100%",
-        height: "175px",
-        overflow: "hidden",
-        borderRadius: "10px",
+        width: '100%',
+        height: '175px',
+        overflow: 'hidden',
+        borderRadius: '10px',
         border: 0,
       }}
       sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
@@ -172,9 +170,9 @@ function EmbeddedApplePodcast({ url }: { url: PodcastResource["url"] }) {
   );
 }
 
-function EmbeddedFilePodcast({ url }: { url: PodcastResource["url"] }) {
+function EmbeddedFilePodcast({ url }: { url: PodcastResource['url'] }) {
   return (
-    <audio controls style={{ width: "100%" }}>
+    <audio controls style={{ width: '100%' }}>
       <source src={url} type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
@@ -182,14 +180,14 @@ function EmbeddedFilePodcast({ url }: { url: PodcastResource["url"] }) {
 }
 
 function EmbeddedVideo({ source }: { source: VideoResource }) {
-    if (source.provider === VideoProvider.File) {
-      return <EmbeddedFileVideo url={source.url} />;
-    } else if (source.provider === VideoProvider.Youtube) {
-      return <EmbeddedYoutubeVideo url={source.url} />;
-    } 
+  if (source.provider === VideoProvider.File) {
+    return <EmbeddedFileVideo url={source.url} />;
+  } else if (source.provider === VideoProvider.Youtube) {
+    return <EmbeddedYoutubeVideo url={source.url} />;
   }
+}
 
-function EmbeddedYoutubeVideo({ url }: { url: VideoResource["url"] }) {
+function EmbeddedYoutubeVideo({ url }: { url: VideoResource['url'] }) {
   return (
     <iframe
       style={{ border: 0 }}
@@ -204,26 +202,25 @@ function EmbeddedYoutubeVideo({ url }: { url: VideoResource["url"] }) {
   );
 }
 
-function EmbeddedFileVideo({ url }: { url: VideoResource["url"] }) {
-    return (
-      <video controls style={{ width: "100%" }}>
-        <source src={url} type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </video>
-    );
-  }
-
-function EmbeddedArticle({ source }: { source: ArticleResource }) {
-    return (
-        <iframe
-        style={{ border: 0 }}
-        width="100%"
-        height="630"
-        src={source.url}
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-      />
-    );
+function EmbeddedFileVideo({ url }: { url: VideoResource['url'] }) {
+  return (
+    <video controls style={{ width: '100%' }}>
+      <source src={url} type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </video>
+  );
 }
 
+function EmbeddedArticle({ source }: { source: ArticleResource }) {
+  return (
+    <iframe
+      style={{ border: 0 }}
+      width="100%"
+      height="630"
+      src={source.url}
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
+    />
+  );
+}

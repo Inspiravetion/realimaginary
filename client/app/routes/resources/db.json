@@ -6,7 +6,7 @@
       "tags": ["Radical Community", "Crisis Response", "Anarchy", "DIY"],
       "sources": [
         {
-          "url": "/realimaginary/crimethinc.recipes.for.disaster.an.anarchist.cookbook.pdf",
+          "url": "/api/resources/crimethinc.recipes.for.disaster.an.anarchist.cookbook.pdf",
           "type": "pdf"
         }
       ]
@@ -27,9 +27,9 @@
           "url": "https://embed.podcasts.apple.com/us/podcast/191-relationship-anarchy-and-the-romance-myth/id1563242316?i=1000681629200"
         },
         {
-            "type": "video",
-            "provider": "youtube",
-            "url": "https://www.youtube-nocookie.com/embed/3BaUwuaa45s?si=MpturckrlRuGU8hl"
+          "type": "video",
+          "provider": "youtube",
+          "url": "https://www.youtube-nocookie.com/embed/3BaUwuaa45s?si=MpturckrlRuGU8hl"
         }
       ]
     },
@@ -41,21 +41,21 @@
         {
           "type": "podcast",
           "provider": "file",
-          "url": "/realimaginary/20211203-BAP-EP004-Mixdown-003-1.mp3",
+          "url": "/api/resources/20211203-BAP-EP004-Mixdown-003-1.mp3",
           "origin": " https://offshootjournal.org/medias/black-autonomy-episode-4-black-anti-fascism-and-armed-self-defense/"
         }
       ]
     },
     {
-        "id": "4",
-        "name": "The Future Is Disabled",
-        "tags": ["Disability Justice", "Queer", "COVID-19", "Mutual Aid"],
-        "sources": [
-          {
-            "type": "article",
-            "url": "https://www.teenvogue.com/story/future-is-disabled-book"
-          }
-        ]
-      }
+      "id": "4",
+      "name": "The Future Is Disabled",
+      "tags": ["Disability Justice", "Queer", "COVID-19", "Mutual Aid"],
+      "sources": [
+        {
+          "type": "article",
+          "url": "https://www.teenvogue.com/story/future-is-disabled-book"
+        }
+      ]
+    }
   ]
 }

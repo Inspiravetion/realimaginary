@@ -1,0 +1,17 @@
+{
+  "name": "real_imaginary/server",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./build/server.js",
+    "dev": "npm run build && npm run start"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^20",
+    "typescript": "^5.7.2"
+  }
+}

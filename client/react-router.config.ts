@@ -1,12 +1,11 @@
 import type { Config } from '@react-router/dev/config';
-import { copyFileSync } from 'fs';
+import { copyFileSync, cpSync } from 'fs';
 import { join } from 'path';
 
 export default {
   // Turning off server side rendering so we have we can have a static site
   ssr: false,
-  basename: '/realimaginary/',
-  buildEnd: (args) => {
+  buildEnd: async (args) => {
     // When deploying to GitHub Pages, if you navigate from / to another
     // route and refresh the tab, it will show the default GH Pages 404
     // page. This happens because GH Pages is not configured to send all
@@ -20,5 +19,9 @@ export default {
     const homePath = join(buildPath, 'index.html');
 
     copyFileSync(homePath, join(buildPath, '404.html'));
+
+    // Copy resources to build folder
+    const resourcesPath = join(buildPath, 'resources/');
+    cpSync('./resources/', resourcesPath, { recursive: true });
   },
 } satisfies Config;
