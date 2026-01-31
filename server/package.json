@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "start": "node ./build/server/index.js"
+    "start": "node ./build/server.js"
   },
   "dependencies": {
     "express": "^5.2.1"
