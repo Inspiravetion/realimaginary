@@ -12,7 +12,7 @@ const PORT = Number.parseInt(process.env.PORT || '3000');
 /**
  * TODO:
  * 1) have the static server paths come from env
- * 2) figure out dev story where hot module resolution works on the frontend and at least server restarts happen for backend changes
+ * 2) figure out dev story so server restarts happen for backend changes
  * 3) cleanup npm commands + docs
  */
 
@@ -23,24 +23,6 @@ app.disable('x-powered-by');
 
 if (DEVELOPMENT) {
   console.log('Starting development server');
-
-  // const viteDevServer = await vite.createServer({
-  //   server: { middlewareMode: true },
-  // });
-
-  // app.use(viteDevServer.middlewares);
-  // app.use(async (req, res, next) => {
-  //   try {
-  //     const source = await viteDevServer.ssrLoadModule('./server/app.ts');
-  //     viteDevServer.loa
-  //     return await source.app(req, res, next);
-  //   } catch (error) {
-  //     if (typeof error === 'object' && error instanceof Error) {
-  //       viteDevServer.ssrFixStacktrace(error);
-  //     }
-  //     next(error);
-  //   }
-  // });
 } else {
   console.log('Starting production server');
 
