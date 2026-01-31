@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router';
-import { navRoutes } from '~/routes';
+import navRoutes from '~/navRoutes';
 import type { Route } from './+types/home';
 import db from './db.json';
 

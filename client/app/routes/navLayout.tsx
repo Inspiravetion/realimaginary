@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink, Outlet } from 'react-router';
-import { navRoutes } from '~/routes';
+import navRoutes from '~/navRoutes';
 
 export default function Layout() {
   const [isOpen, setIsOpen] = useState(false);
