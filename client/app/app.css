@@ -1,15 +1,182 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+/* Fonts */
+@font-face {
+	font-family: 'Inter';
+	src: url('fonts/Inter/Inter-VariableFont_opsz,wght.ttf');
+}
+
+@font-face {
+	font-family: 'Poppins Extra Bold';
+	src: url('fonts/Poppins/Poppins-ExtraBold.ttf');
+}
+
+@font-face {
+	font-family: 'Poppins Regular';
+	src: url('fonts/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Poppins Light';
+	src: url('fonts/Poppins/Poppins-Light.ttf');
+}
+
+/* App Styles */
+:root {
+	--red: #E14A4A;
+	--teal: #005F73;
+	--blue: #004CFF;
+	--black: #41444B;
+	--gray: #94989B;
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+	color: black;
+	font-family: 'Inter';
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+.page-container {
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: start;
+}
+
+.content-container {
+	margin-top: 2em;
+	width: 50%;
+	height: 100%;
+	flex: 1;
+}
+
+.outlet-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.space-flex-horizontal {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.brand-mark {
+	color: var(--red);
+	font-family: 'Inter';
+	font-weight: 800;
+	font-size: xx-large;
+}
+
+.button-svg-icon {
+	width: fit-content;
+	height: fit-content;
+	cursor: pointer;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+h1 {
+	font-family: 'Inter';
+	font-weight: 800;
+	font-size: xx-large;
+	color: var(--red);
+	margin: 0;
+}
+
+/* Navigation Menu */
+.nav-menu {
+	padding: 36px;
+	border-left: 2px solid var(--red);
+}
+
+.nav-menu ul {
+	display: flex;
+	flex-direction: column;
+	font-weight: bold;
+	color: var(--black);
+}
+
+.nav-menu ul>* {
+	margin-bottom: 12px;
+}
+
+/* Footer */
+.footer-container {
+	width: 100%;
+	margin-top: auto;
+	min-height: 20vh;
+	background-color: var(--red);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer-content {
+	width: 50%;
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	justify-content: start;
+	gap: 6em;
+}
+
+.footer-container h1 {
+	font-family: 'Poppins Extra Bold';
+	color: white;
+	line-height: 125%;
+	margin: 0;
+}
+
+.footer-container a {
+	font-family: 'Poppins Regular';
+	font-size: 22px;
+	color: white;
+}
+
+.footer-container .links {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+}
+
+.footer-container .subscribe-container {
+	margin-left: auto;
+}
+
+.footer-container form {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	gap: 1em;
+}
+
+.email-input {
+	background-color: white;
+	border: 1px solid white;
+	border-radius: 6px;
+	width: 250px;
+	padding: 0 1em;
+
+	font-family: 'Inter';
+	font-weight: 300;
+	color: var(--black);
+}
+
+.subscribe-button {
+	border: 2px solid white;
+	border-radius: 6px;
+	background: none;
+	padding: 0.2em 0.4em;
+
+	color: white;
+	font-family: 'Inter';
+	font-size: 16px;
+
+	cursor: pointer;
 }
